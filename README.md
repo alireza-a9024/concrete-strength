@@ -6,46 +6,14 @@
 <p>
 Concrete is the most important material in civil engineering. This project aims to leverage machine learning to predict its compressive strength, enabling better material optimization, reduced testing costs, and more sustainable construction practices.</p>
 
-<h1>Table of Contents</h1>
-<li>
-<ul>Project Overview</ul>
+<h1>Project Overview</h1>
+<p>This project focuses on developing accurate machine learning models to predict the compressive strength of concrete based on its mixture components and age. The core purpose is to facilitate the optimization of concrete mixture designs, minimize expensive and time-consuming physical laboratory tests, and contribute to sustainable construction by reducing material waste.</p>
 
-<li><h3>CRISP-DM Methodology</h3>
+<p>The project rigorously follows the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, ensuring a structured and comprehensive approach from the initial understanding of the business problem to the final evaluation of the deployed solution.</p>
 
-<ol>1. Business Understanding</ol>
+<h1>CRISP-DM Methodology</h1>
 
-<ol>2. Data Understanding</ol>
-
-<ol>3. Data Preparation</ol>
-
-<ol>4. Modeling</ol>
-
-<ol>5. Evaluation</ol>
-</li>
-<ul>Key Results</ul>
-
-<ul>Limitations</ul>
-
-<ul>Future Improvements</ul>
-
-<ul>Project Organization</ul>
-
-<ul>Technologies Used</ul>
-
-<ul>How to Run the Project</ul>
-
-<ul>License</ul>
-
-</li>
-Project Overview
-This project focuses on developing accurate machine learning models to predict the compressive strength of concrete based on its mixture components and age. The core purpose is to facilitate the optimization of concrete mixture designs, minimize expensive and time-consuming physical laboratory tests, and contribute to sustainable construction by reducing material waste.
-
-The project rigorously follows the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, ensuring a structured and comprehensive approach from the initial understanding of the business problem to the final evaluation of the deployed solution.
-
-CRISP-DM Methodology
-
-1. Business Understanding
-   (Refer to notebooks/1_business_understanding.ipynb)
+<h2>1. Business Understanding (Refer to notebooks/1_business_understanding.ipynb)</h2>
 
 Objective: To build robust predictive models for concrete compressive strength with the following goals:
 
@@ -65,12 +33,11 @@ Supplementary Cementitious Materials (SCMs): Materials like slag and flyash are 
 
 Age: Concrete gains strength over time, with 28 days being a standard reference point for compressive strength.
 
-2. Data Understanding
-   (Refer to notebooks/2_data_understanding.ipynb)
+<h2>2. Data Understanding (Refer to notebooks/2_data_understanding.ipynb)</h2>
 
 Dataset:
 
-Source: UCI Machine Learning Repository
+Source: [Kaggle.com Machine Learning Repository](https://www.kaggle.com/datasets/maajdl/yeh-concret-data?select=Concrete_Data_Yeh.csv)
 
 Size: Contains 1030 unique samples of concrete mixtures.
 
@@ -88,8 +55,7 @@ Outliers: Outliers were detected using IQR and Z-score methods. A deliberate dec
 
 Correlations: Strong positive correlations were observed between cement content and strength, and age and strength. Conversely, water content showed a negative correlation with strength. Several non-linear relationships were also evident, suggesting the need for models capable of capturing such complexities.
 
-3. Data Preparation
-   (Refer to notebooks/3_data_preparation.ipynb)
+<h2>3. Data Preparation (Refer to notebooks/3_data_preparation.ipynb)</h2>
 
 This phase involved preparing the raw data for effective model training.
 
@@ -99,8 +65,7 @@ Feature Scaling: All input features (excluding the target csMPa) were scaled usi
 
 PCA Analysis: Principal Component Analysis was performed to explore potential dimensionality reduction. The cumulative explained variance by principal components was analyzed, and a PCA-transformed dataset (specifically using the first 6 principal components which captured a significant portion of variance) was generated for use in certain modeling approaches (e.g., Linear Regression on PCA components).
 
-4. Modeling
-   (Refer to notebooks/4_modeling.ipynb)
+<h2>4. Modeling (Refer to notebooks/4_modeling.ipynb)</h2>
 
 A variety of machine learning regression models were implemented, trained, and compared for their ability to accurately predict concrete compressive strength. The models investigated include:
 
@@ -119,8 +84,7 @@ R² Score (Coefficient of Determination): Measures the proportion of variance in
 
 RMSE (Root Mean Squared Error): Quantifies the average magnitude of the errors. RMSE is in the same units as the target variable (MPa) and significantly penalizes larger errors. This metric was prioritized over MAE (Mean Absolute Error) due to the safety-critical nature of concrete strength prediction, where substantial prediction errors can have severe consequences. RMSE's continuous differentiability also makes it well-suited for gradient-based optimization algorithms used in models like Neural Networks.
 
-5. Evaluation
-   (Refer to notebooks/5_evaluation.ipynb)
+<h2>5. Evaluation(Refer to notebooks/5_evaluation.ipynb)</h2>
 
 This final stage involved a comprehensive assessment of the models from both a technical and business perspective.
 
@@ -129,13 +93,13 @@ Summary of Model Performance:
 
 Best Performing Model: Random Forest Regressor
 
-R² Score: 0.9542
+R² Score: 0.9073
 
-RMSE: 3.1234 MPa
+RMSE: 5.2575 MPa
 
 The Random Forest Regressor consistently demonstrated the highest predictive accuracy and robustness across the evaluation metrics.
 
-Key Results
+<h1>Key Results</h1>
 The project successfully developed a highly accurate predictive model for concrete compressive strength. The Random Forest Regressor emerged as the top performer, exhibiting excellent generalization capabilities with a high R² score and a low RMSE. This indicates its strong ability to predict concrete strength reliably even for unseen concrete mixture designs.
 
 Significant Business Value Achieved:
@@ -146,14 +110,14 @@ Quality Improvements: Provides more consistent and accurate predictions of concr
 
 Sustainability Impact: Enables optimization of material usage, particularly cement, leading to reduced waste and a lower carbon footprint in concrete production.
 
-Limitations
+<h1>Limitations</h1>
 Accuracy for High Strength Concrete: The model's predictive accuracy was observed to be slightly reduced for very high strength concrete mixes, potentially due to fewer samples in this range in the training data.
 
 Limited Extrapolation: The model's performance might degrade when applied to concrete mixtures that are significantly outside the range of the chemical compositions or ages present in the training dataset.
 
 Environmental Factors: Critical external variables such as specific curing conditions (temperature, humidity) and other environmental factors, which are known to impact concrete strength, were not available in the dataset and thus not incorporated into the models.
 
-Future Improvements
+<h1>Future Improvements</h1>
 Data Collection & Enrichment:
 
 Prioritize gathering more diverse data, especially for high-strength concrete formulations.
