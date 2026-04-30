@@ -63,13 +63,11 @@ Duplicate Handling: Only exact duplicate records were removed to ensure data int
 
 Feature Scaling: All input features (excluding the target csMPa) were scaled using StandardScaler. This transformation standardizes features to a mean of 0 and a standard deviation of 1, which is vital for optimizing algorithms sensitive to feature magnitudes (e.g., Linear Regression, Neural Networks).
 
-PCA Analysis: Principal Component Analysis was performed to explore potential dimensionality reduction. The cumulative explained variance by principal components was analyzed, and a PCA-transformed dataset (specifically using the first 6 principal components which captured a significant portion of variance) was generated for use in certain modeling approaches (e.g., Linear Regression on PCA components).
-
 <h2>4. Modeling (Refer to notebooks/4_modeling.ipynb)</h2>
 
 A variety of machine learning regression models were implemented, trained, and compared for their ability to accurately predict concrete compressive strength. The models investigated include:
 
-Linear Regression with PCA: Applied to the dataset reduced by PCA (using the top 6 principal components).
+Linear Regression: Applied to the dataset.
 
 Random Forest Regressor: A robust ensemble method trained on the original, scaled features.
 
